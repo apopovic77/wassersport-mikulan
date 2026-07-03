@@ -93,7 +93,7 @@ export function Booking() {
                 Follow us
               </p>
               <p className="mt-4 text-xs uppercase tracking-[0.24em] text-coral-light group-hover:translate-x-1 transition-transform">
-                📸 @wassersportmikulan →
+                📸 {brand.instagramHandle} →
               </p>
             </a>
           </Reveal>

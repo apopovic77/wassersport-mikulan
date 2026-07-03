@@ -12,7 +12,8 @@ export const brand = {
   phone: "+43 664 220 34 00",
   phoneDisplay: "+43 664 2203400",
   email: "info@wassersport-mikulan.at",
-  instagram: "https://www.instagram.com/wassersportmikulan/",
+  instagram: "https://www.instagram.com/wassersport.mikulan/",
+  instagramHandle: "@wassersport.mikulan",
   year: new Date().getFullYear(),
   copyrightYear: 2024,
   coords: [14.0455, 46.6103] as [number, number], // Seecorso 11 approx — between Schloss Velden and street match (Photon)

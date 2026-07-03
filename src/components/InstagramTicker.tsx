@@ -38,7 +38,7 @@ export function InstagramTicker() {
           <div>
             <Reveal>
               <p className="text-coral text-[11px] uppercase tracking-[0.4em] mb-4 font-medium">
-                Instagram · @wassersportmikulan
+                Instagram · {brand.instagramHandle}
               </p>
             </Reveal>
             <Reveal delay={0.05}>
