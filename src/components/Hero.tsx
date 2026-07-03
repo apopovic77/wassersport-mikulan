@@ -40,7 +40,7 @@ export function Hero() {
             transition={{ duration: 0.9, delay: 0.35 }}
             className="mb-6"
           >
-            <span className="inline-block bg-coral text-cream text-[11px] uppercase tracking-[0.4em] font-medium px-3 py-1.5">
+            <span className="inline-block bg-coral text-cream text-[11px] uppercase tracking-[0.4em] font-medium px-3 py-0.5">
               {hero.eyebrow}
             </span>
           </motion.p>
