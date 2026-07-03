@@ -16,7 +16,7 @@ export const brand = {
   instagramHandle: "@wassersport.mikulan",
   year: new Date().getFullYear(),
   copyrightYear: 2024,
-  coords: [14.0443, 46.6114] as [number, number], // Direkt vor dem Schlosshotel Velden am Ufer
+  coords: [14.04426, 46.61164] as [number, number], // OSM pier "Velden Schloßhotel" — direkt am Steg vor dem Schlosshotel
 } as const;
 
 export const services = [
