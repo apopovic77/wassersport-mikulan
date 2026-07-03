@@ -28,7 +28,7 @@ export const services = [
 ];
 
 export const hero = {
-  eyebrow: "Velden am Wörthersee · seit 1985",
+  eyebrow: "Velden am Wörthersee · seit 1988",
   slogan: "A little party never killed nobody",
   emoji: "🥂🏄‍♂️☀️",
   intro:
@@ -47,7 +47,7 @@ export const boat = {
   specs: [
     { label: "Länge", value: "6,10 m" },
     { label: "Motor", value: "MasterCraft" },
-    { label: "Kapazität", value: "8 Personen" },
+    { label: "Kapazität", value: "10 Personen" },
     { label: "Wakesurf", value: "Ready" },
   ],
   cta: "Jetzt starten",
