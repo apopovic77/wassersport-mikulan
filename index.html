@@ -16,9 +16,72 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <title>Wassersport Mikulan — Motorboot, Seerundfahrten, Wasserski am Wörthersee</title>
+
+    <!-- Structured Data — LocalBusiness / Sports Activity Rental -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "@id": "https://wassersportmikulan.com/#business",
+      "name": "Wassersport Mikulan",
+      "description": "Motorboot-Charter, Seerundfahrten, Wasserski, Wakesurfen, Wassertaxi und Bootsverleih am Wörthersee. Seit 1988 in Velden.",
+      "url": "https://wassersportmikulan.com/",
+      "telephone": "+436642203400",
+      "priceRange": "€€",
+      "foundingDate": "1988",
+      "image": [
+        "https://wassersportmikulan.com/media/images/nkt20-motorboot.jpg",
+        "https://wassersportmikulan.com/media/images/kevin-captain.jpg"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Seecorso 11",
+        "addressLocality": "Velden am Wörthersee",
+        "postalCode": "9220",
+        "addressRegion": "Kärnten",
+        "addressCountry": "AT"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 46.6103,
+        "longitude": 14.0455
+      },
+      "sameAs": [
+        "https://www.instagram.com/wassersportmikulan/"
+      ],
+      "makesOffer": [
+        {"@type":"Offer","name":"Motorboot-Charter","description":"NKT 20 MasterCraft für bis zu 10 Personen"},
+        {"@type":"Offer","name":"Seerundfahrten"},
+        {"@type":"Offer","name":"Wasserski"},
+        {"@type":"Offer","name":"Wakesurfen"},
+        {"@type":"Offer","name":"Wassertaxi"}
+      ],
+      "openingHoursSpecification": [{
+        "@type":"OpeningHoursSpecification",
+        "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens":"09:00",
+        "closes":"20:00",
+        "validFrom":"2026-05-01",
+        "validThrough":"2026-09-30"
+      }]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <!-- No-JS fallback for indexers / accessibility -->
+    <noscript>
+      <div style="max-width:720px;margin:60px auto;padding:24px;font-family:system-ui,sans-serif;line-height:1.6;color:#1a1810;">
+        <h1>Wassersport Mikulan — Velden am Wörthersee</h1>
+        <p>Motorboot-Charter, Seerundfahrten, Wasserski, Wakesurfen und Wassertaxi am Wörthersee. Seit 1988 direkt am Seecorso in Velden.</p>
+        <p>Bitte JavaScript aktivieren, um die vollständige Seite zu sehen — oder kontaktieren Sie uns direkt:</p>
+        <ul>
+          <li>Telefon: <a href="tel:+436642203400">+43 664 220 34 00</a></li>
+          <li>Instagram: <a href="https://www.instagram.com/wassersportmikulan/">@wassersportmikulan</a></li>
+          <li>Adresse: Seecorso 11, 9220 Velden am Wörthersee, Österreich</li>
+        </ul>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

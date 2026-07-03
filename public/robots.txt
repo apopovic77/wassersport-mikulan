@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wassersportmikulan.com/sitemap.xml
