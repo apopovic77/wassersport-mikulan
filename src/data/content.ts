@@ -16,7 +16,7 @@ export const brand = {
   instagramHandle: "@wassersport.mikulan",
   year: new Date().getFullYear(),
   copyrightYear: 2024,
-  coords: [14.0455, 46.6103] as [number, number], // Seecorso 11 approx — between Schloss Velden and street match (Photon)
+  coords: [14.0443, 46.6114] as [number, number], // Direkt vor dem Schlosshotel Velden am Ufer
 } as const;
 
 export const services = [
