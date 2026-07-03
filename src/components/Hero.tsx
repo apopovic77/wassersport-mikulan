@@ -38,9 +38,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, delay: 0.35 }}
-            className="text-cream/85 text-[11px] uppercase tracking-[0.4em] mb-6 font-medium"
+            className="mb-6"
           >
-            {hero.eyebrow}
+            <span className="inline-block bg-coral text-cream text-[11px] uppercase tracking-[0.4em] font-medium px-3 py-1.5">
+              {hero.eyebrow}
+            </span>
           </motion.p>
 
           <motion.h1
