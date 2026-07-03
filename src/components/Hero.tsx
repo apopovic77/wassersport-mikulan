@@ -99,16 +99,6 @@ export function Hero() {
         </motion.div>
       </div>
 
-      {/* Location bug — top right */}
-      <motion.div
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.9, delay: 0.5 }}
-        className="absolute top-20 md:top-24 right-6 md:right-10 hidden sm:flex items-center gap-2 text-cream/80 text-[11px] uppercase tracking-[0.32em]"
-      >
-        <span>📍</span>
-        <span>Wir sind hier</span>
-      </motion.div>
     </section>
   );
 }
