@@ -28,7 +28,7 @@ export const services = [
 ];
 
 export const hero = {
-  eyebrow: "Velden am Wörthersee · seit 2024",
+  eyebrow: "Velden am Wörthersee · seit 1985",
   slogan: "A little party never killed nobody",
   emoji: "🥂🏄‍♂️☀️",
   intro:
