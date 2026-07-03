@@ -1,37 +1,36 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import { Reveal } from "./Reveal";
 import { brand } from "../data/content";
 
 /**
- * Instagram ticker — horizontal auto-scrolling marquee showing recent posts.
+ * Instagram ticker — CommonNinja embed.
  *
- * Currently uses static tiles (the Wassersport media we already have). Two ways
- * to make it AUTO-UPDATE:
- *
- * A) Swap in an embed widget (Framer original used CommonNinja):
- *    Sign up at commoninja.com / elfsight.com / lightwidget.com,
- *    connect the @wassersportmikulan account, get an iframe snippet,
- *    and replace <StaticTiles /> below with the iframe.
- *
- * B) Use Instagram Graph API + a serverless endpoint (heavier setup).
- *
- * For now: static tiles + link to full Instagram profile.
+ * The script scans the DOM for .commonninja_component divs on load and mounts
+ * the widget. Since we're a SPA, we inject the script imperatively when the
+ * component first mounts and let CN re-scan when navigating back.
  */
-
-// Manually curated post tiles — update these when you post new content.
-const posts = [
-  { src: "/media/images/kevin-captain.jpg", caption: "Dein Kapitän Kevin" },
-  { src: "/media/images/nkt20-motorboot.jpg", caption: "NKT 20 in Action" },
-  { src: "/media/images/wave-overlay.png", caption: "Waves like these 🌊" },
-  { src: "/media/images/kevin-captain.jpg", caption: "Cruise am See" },
-  { src: "/media/images/nkt20-motorboot.jpg", caption: "Sunset Runde" },
-  { src: "/media/images/wave-overlay.png", caption: "Wakeboard Session" },
-];
-
-// Duplicate the list so the marquee loops seamlessly
-const ticker = [...posts, ...posts];
+const CN_WIDGET_ID = "cb4be9ad-666a-499c-b5b8-9e596f2ec5b6";
+const CN_SCRIPT_SRC = "https://cdn.commoninja.com/sdk/latest/commonninja.js";
 
 export function InstagramTicker() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // If the SDK is already loaded (e.g. after client-side nav), ask it to rescan
+    const w = window as any;
+    if (w.commonninja?.load) {
+      w.commonninja.load();
+      return;
+    }
+    // Otherwise load the script once
+    const existing = document.querySelector(`script[src="${CN_SCRIPT_SRC}"]`);
+    if (existing) return;
+    const s = document.createElement("script");
+    s.src = CN_SCRIPT_SRC;
+    s.defer = true;
+    document.head.appendChild(s);
+  }, []);
+
   return (
     <section id="instagram" className="relative bg-cream py-16 md:py-24 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 md:px-10 mb-10">
@@ -64,50 +63,14 @@ export function InstagramTicker() {
         </div>
       </div>
 
-      {/* Marquee — CSS-driven infinite horizontal scroll */}
-      <div className="relative">
-        {/* Left/right fade masks */}
-        <div className="absolute inset-y-0 left-0 w-24 md:w-48 z-10 pointer-events-none bg-gradient-to-r from-cream to-transparent" />
-        <div className="absolute inset-y-0 right-0 w-24 md:w-48 z-10 pointer-events-none bg-gradient-to-l from-cream to-transparent" />
-
-        <motion.div
-          className="flex gap-4 md:gap-6 w-max"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 40, ease: "linear", repeat: Infinity }}
-        >
-          {ticker.map((post, i) => (
-            <a
-              key={i}
-              href={brand.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative block h-52 w-52 md:h-64 md:w-64 shrink-0 overflow-hidden rounded-sm shadow-lg"
-            >
-              <img
-                src={post.src}
-                alt={post.caption}
-                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              {/* Overlay on hover with caption */}
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <div>
-                  <span className="inline-flex items-center gap-1.5 bg-coral text-cream px-2 py-0.5 text-[9px] uppercase tracking-[0.24em] font-bold mb-2">
-                    📸 Insta
-                  </span>
-                  <p className="text-cream text-sm font-medium leading-tight">
-                    {post.caption}
-                  </p>
-                </div>
-              </div>
-            </a>
-          ))}
-        </motion.div>
-      </div>
-
-      <Reveal delay={0.2}>
-        <p className="mt-10 text-center text-xs italic text-ink-soft/70 max-w-md mx-auto px-6">
-          Für den Live-Feed — folge uns auf Instagram.
-        </p>
+      {/* CommonNinja live Instagram feed */}
+      <Reveal delay={0.15}>
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <div
+            ref={ref}
+            className={`commonninja_component pid-${CN_WIDGET_ID}`}
+          />
+        </div>
       </Reveal>
     </section>
   );
