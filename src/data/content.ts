@@ -15,7 +15,7 @@ export const brand = {
   instagram: "https://www.instagram.com/wassersportmikulan/",
   year: new Date().getFullYear(),
   copyrightYear: 2024,
-  coords: [14.2018, 46.6111] as [number, number], // Velden am Wörthersee Seecorso
+  coords: [14.0455, 46.6103] as [number, number], // Seecorso 11 approx — between Schloss Velden and street match (Photon)
 } as const;
 
 export const services = [

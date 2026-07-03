@@ -16,7 +16,7 @@ export function Location() {
       container: ref.current,
       style: "https://tiles.openfreemap.org/styles/positron",
       center: COORDS,
-      zoom: 15.5,
+      zoom: 16.5,
       pitch: 55,
       bearing: -25,
       attributionControl: { compact: true },
